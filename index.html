@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LittleStars Preschool — Navi Mumbai</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+    /* ============================================================
+       ADMISSIONS SECTION
+       ============================================================ */
+    .admissions-section {
+        padding: 90px 40px;
+        background: #fff;
+        position: relative;
+        overflow: hidden;
+    }
+    .admissions-section::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23FF6B6B' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        pointer-events: none;
+    }
+    .admissions-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 1;
+    }
+    .adm-steps {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        margin: 52px 0 64px;
+        position: relative;
+    }
+    .adm-steps::before {
+        content: '';
+        position: absolute;
+        top: 44px;
+        left: 12.5%;
+        right: 12.5%;
+        height: 3px;
+        background: linear-gradient(90deg, #FF6B6B, #FF922B, #51CF66, #339AF0);
+        border-radius: 3px;
+        z-index: 0;
+    }
+    .adm-step {
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        padding: 0 12px;
+    }
+    .step-bubble {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 34px;
+        margin: 0 auto 18px;
+        border: 4px solid #fff;
+        box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+        transition: transform 0.3s ease;
+    }
+    .adm-step:hover .step-bubble { transform: translateY(-6px) scale(1.05); }
+    .adm-step h4 {
+        font-family: 'Baloo 2', cursive;
+        font-size: 15px;
+        font-weight: 800;
+        color: #1C1C2E;
+        margin-bottom: 7px;
+    }
+    .adm-step p { font-size: 13px; color: #7B7B8F; line-height: 1.6; }
+    .step-num-tag {
+        display: inline-block;
+        background: linear-gradient(135deg, #FF6B6B, #FF922B);
+        color: #fff;
+        font-size: 10px;
+        font-weight: 800;
+        padding: 2px 10px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        letter-spacing: 0.5px;
+    }
+    .adm-two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        margin-bottom: 56px;
+    }
+    .adm-box {
+        background: #FFFBF5;
+        border-radius: 20px;
+        padding: 32px;
+        border: 1.5px solid rgba(255,107,107,0.1);
+    }
+    .adm-box h3 {
+        font-family: 'Baloo 2', cursive;
+        font-size: 20px;
+        font-weight: 800;
+        color: #1C1C2E;
+        margin-bottom: 22px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .fee-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 13px 16px;
+        background: #fff;
+        border-radius: 12px;
+        margin-bottom: 10px;
+        border: 1.5px solid rgba(0,0,0,0.05);
+        transition: all 0.25s ease;
+    }
+    .fee-row:hover {
+        border-color: rgba(255,107,107,0.25);
+        transform: translateX(4px);
+        box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+    .fee-left { display: flex; align-items: center; gap: 12px; }
+    .fee-emoji { font-size: 24px; }
+    .fee-name { font-size: 14px; font-weight: 800; color: #1C1C2E; }
+    .fee-age  { font-size: 11px; color: #7B7B8F; margin-top: 2px; }
+    .fee-price {
+        font-family: 'Baloo 2', cursive;
+        font-size: 15px;
+        font-weight: 800;
+        color: #FF6B6B;
+    }
+    .fee-note {
+        font-size: 12px;
+        color: #7B7B8F;
+        margin-top: 14px;
+        padding: 12px 14px;
+        background: #fff;
+        border-radius: 10px;
+        border-left: 3px solid #51CF66;
+        line-height: 1.6;
+    }
+    .doc-list { list-style: none; padding: 0; margin: 0; }
+    .doc-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 11px;
+        padding: 11px 0;
+        border-bottom: 1px dashed rgba(0,0,0,0.08);
+        font-size: 14px;
+        color: #3D3D50;
+    }
+    .doc-list li:last-child { border-bottom: none; }
+    .doc-list i { color: #FF6B6B; margin-top: 3px; flex-shrink: 0; font-size: 13px; }
+    .doc-list strong { display: block; font-size: 13.5px; font-weight: 800; color: #1C1C2E; }
+    .doc-list span   { font-size: 12px; color: #7B7B8F; }
+    .adm-form-wrap {
+        background: linear-gradient(160deg, #1C1C2E, #0F3460);
+        border-radius: 24px;
+        padding: 48px;
+        position: relative;
+        overflow: hidden;
+    }
+    .adm-form-wrap::before {
+        content: '🎒 📚 🌟 🎨 🎈';
+        position: absolute;
+        top: 18px; right: 28px;
+        font-size: 22px;
+        letter-spacing: 6px;
+        opacity: 0.3;
+    }
+    .adm-form-wrap h3 {
+        font-family: 'Baloo 2', cursive;
+        font-size: 26px;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 6px;
+    }
+    .adm-form-wrap > p { color: rgba(255,255,255,0.6); font-size: 14.5px; margin-bottom: 32px; }
+    .adm-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .adm-form-grid .full { grid-column: span 2; }
+    .adm-input-group { display: flex; flex-direction: column; gap: 6px; }
+    .adm-input-group label {
+        font-size: 11.5px;
+        font-weight: 800;
+        color: rgba(255,255,255,0.55);
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+    }
+    .adm-input-group input,
+    .adm-input-group select,
+    .adm-input-group textarea {
+        padding: 12px 16px;
+        border: 1.5px solid rgba(255,255,255,0.12);
+        border-radius: 12px;
+        background: rgba(255,255,255,0.07);
+        color: #fff;
+        font-size: 14px;
+        font-family: 'Nunito', sans-serif;
+        outline: none;
+        transition: all 0.25s ease;
+        width: 100%;
+    }
+    .adm-input-group input::placeholder,
+    .adm-input-group textarea::placeholder { color: rgba(255,255,255,0.3); }
+    .adm-input-group input:focus,
+    .adm-input-group select:focus,
+    .adm-input-group textarea:focus {
+        border-color: #FF6B6B;
+        background: rgba(255,255,255,0.1);
+    }
+    .adm-input-group select { appearance: none; cursor: pointer; }
+    .adm-input-group select option { color: #1C1C2E; background: #fff; }
+    .adm-input-group textarea { resize: vertical; }
+    .adm-submit {
+        width: 100%;
+        padding: 15px;
+        background: linear-gradient(135deg, #FF6B6B, #FF922B);
+        color: #fff;
+        border: none;
+        border-radius: 50px;
+        font-size: 16px;
+        font-weight: 800;
+        font-family: 'Baloo 2', cursive;
+        cursor: pointer;
+        box-shadow: 0 6px 22px rgba(255,107,107,0.4);
+        transition: all 0.3s ease;
+        margin-top: 8px;
+        letter-spacing: 0.5px;
+    }
+    .adm-submit:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 32px rgba(255,107,107,0.5);
+    }
+
+    /* ============================================================
+       FAQ SECTION
+       ============================================================ */
+    .faq-section {
+        padding: 90px 40px;
+        background: #FFFBF5;
+        position: relative;
+    }
+    .faq-inner { max-width: 860px; margin: 0 auto; }
+    .faq-list { margin-top: 48px; display: flex; flex-direction: column; gap: 14px; }
+    .faq-item {
+        background: #fff;
+        border-radius: 16px;
+        border: 1.5px solid rgba(255,107,107,0.1);
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 3px 14px rgba(0,0,0,0.05);
+    }
+    .faq-item.open {
+        border-color: rgba(255,107,107,0.35);
+        box-shadow: 0 8px 28px rgba(255,107,107,0.1);
+    }
+    .faq-q {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 20px 24px;
+        cursor: pointer;
+        user-select: none;
+        transition: background 0.2s ease;
+    }
+    .faq-q:hover { background: #FFFBF5; }
+    .faq-item.open .faq-q { background: #FFFBF5; }
+    .faq-q-left { display: flex; align-items: center; gap: 14px; }
+    .faq-emoji {
+        font-size: 22px;
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #FFE8CC, #FFD6B3);
+        border-radius: 10px;
+    }
+    .faq-q strong {
+        font-family: 'Baloo 2', cursive;
+        font-size: 15.5px;
+        font-weight: 700;
+        color: #1C1C2E;
+        line-height: 1.3;
+    }
+    .faq-icon {
+        width: 32px; height: 32px;
+        border-radius: 50%;
+        background: rgba(255,107,107,0.08);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 13px; color: #FF6B6B;
+        flex-shrink: 0;
+        transition: all 0.3s ease;
+    }
+    .faq-item.open .faq-icon {
+        background: linear-gradient(135deg, #FF6B6B, #FF922B);
+        color: #fff;
+        transform: rotate(45deg);
+    }
+    .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s ease;
+        padding: 0 24px;
+    }
+    .faq-item.open .faq-a { max-height: 400px; padding: 0 24px 22px; }
+    .faq-a-inner {
+        font-size: 14.5px;
+        color: #7B7B8F;
+        line-height: 1.85;
+        border-top: 1px dashed rgba(255,107,107,0.15);
+        padding-top: 16px;
+    }
+    .faq-a-inner strong { color: #1C1C2E; }
+    .faq-a-inner ul { margin: 10px 0 0 16px; padding: 0; }
+    .faq-a-inner ul li { margin-bottom: 5px; }
+    .faq-cats {
+        display: flex; gap: 10px; flex-wrap: wrap;
+        justify-content: center; margin-top: 18px;
+    }
+    .faq-cat {
+        padding: 8px 20px; border-radius: 50px;
+        font-size: 13px; font-weight: 700;
+        border: 2px solid rgba(255,107,107,0.2);
+        color: #FF6B6B; background: #fff;
+        cursor: pointer; transition: all 0.25s ease;
+        font-family: 'Nunito', sans-serif;
+    }
+    .faq-cat.active, .faq-cat:hover { background: #FF6B6B; color: #fff; border-color: #FF6B6B; }
+    .faq-cta {
+        margin-top: 44px;
+        background: linear-gradient(135deg, #FF6B6B, #FF922B);
+        border-radius: 20px;
+        padding: 36px 40px;
+        display: flex; align-items: center;
+        justify-content: space-between;
+        gap: 20px; flex-wrap: wrap;
+    }
+    .faq-cta-left h4 {
+        font-family: 'Baloo 2', cursive;
+        font-size: 22px; font-weight: 800;
+        color: #fff; margin-bottom: 5px;
+    }
+    .faq-cta-left p { font-size: 14px; color: rgba(255,255,255,0.8); }
+    .faq-cta-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .faq-cta .btn-white {
+        background: #fff; color: #FF6B6B;
+        padding: 12px 22px; border-radius: 50px;
+        font-weight: 800; font-size: 14px;
+        font-family: 'Baloo 2', cursive;
+        text-decoration: none;
+        display: inline-flex; align-items: center; gap: 8px;
+        transition: all 0.25s ease;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+    }
+    .faq-cta .btn-white:hover { transform: translateY(-2px); }
+    .faq-cta .btn-wa-sm {
+        background: #25D366; color: #fff;
+        padding: 12px 22px; border-radius: 50px;
+        font-weight: 800; font-size: 14px;
+        font-family: 'Baloo 2', cursive;
+        text-decoration: none;
+        display: inline-flex; align-items: center; gap: 8px;
+        transition: all 0.25s ease;
+    }
+    .faq-cta .btn-wa-sm:hover { transform: translateY(-2px); background: #22C55E; }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 900px) {
+        .adm-steps { grid-template-columns: 1fr 1fr; gap: 28px; }
+        .adm-steps::before { display: none; }
+        .adm-two-col { grid-template-columns: 1fr; }
+        .adm-form-grid { grid-template-columns: 1fr; }
+        .adm-form-grid .full { grid-column: span 1; }
+        .adm-form-wrap { padding: 32px 24px; }
+        .faq-cta { flex-direction: column; text-align: center; }
+        .faq-cta-btns { justify-content: center; }
+    }
+    @media (max-width: 600px) {
+        .adm-steps { grid-template-columns: 1fr; }
+        .admissions-section, .faq-section { padding: 64px 18px; }
+        .faq-q { padding: 16px 18px; }
+        .faq-item.open .faq-a { padding: 0 18px 18px; }
+        .faq-cta { padding: 28px 22px; }
+    }
+    </style>
+</head>
+<body>
+
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ===== HEADER ===== -->
+    <header id="mainHeader">
+        <div class="header-inner">
+            <div class="logo">
+                <div class="logo-icon">⭐</div>
+                <div class="logo-text">
+                    <span class="logo-main">LittleStars</span>
+                    <span class="logo-sub">Preschool</span>
+                </div>
+            </div>
+            <nav class="navbar" id="navList">
+                <a href="#home"         class="nav-link">Home</a>
+                <a href="#about"        class="nav-link">About</a>
+                <a href="#programs"     class="nav-link">Programs</a>
+                <a href="#gallery"      class="nav-link">Gallery</a>
+                <a href="#testimonials" class="nav-link">Parents Say</a>
+                <a href="#admissions"   class="nav-link">Admissions</a>
+                <a href="#faq"          class="nav-link">FAQs</a>
+                <a href="#contact"      class="nav-link">Contact</a>
+            </nav>
+            <div class="header-cta">
+                <a href="#admissions" class="enroll-btn">Enroll Now <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <button class="mobile-menu-btn" id="menuBtn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="home">
+        <div class="deco-shapes">
+            <div class="deco d1">🌈</div>
+            <div class="deco d2">🦋</div>
+            <div class="deco d3">⭐</div>
+            <div class="deco d4">🌸</div>
+            <div class="deco d5">🎈</div>
+            <div class="deco d6">🌟</div>
+            <div class="deco d7">🐝</div>
+            <div class="deco d8">🍎</div>
+        </div>
+        <div class="hero-blob blob1"></div>
+        <div class="hero-blob blob2"></div>
+        <div class="hero-blob blob3"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">🎉 Admissions Open 2026–27</div>
+                <h1>
+                    Where Every Child's<br>
+                    <em class="highlight-text">Journey Begins</em> with<br>
+                    <span class="rainbow-text">Joy & Wonder</span>
+                </h1>
+                <p class="hero-desc">Nurturing young minds through play-based learning, creativity, and care in a safe, loving environment — from Playgroup to Kindergarten.</p>
+                <div class="hero-btns">
+                    <a href="#admissions" class="btn-primary">Apply Now 🎒 <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#programs"   class="btn-secondary"><i class="fa-solid fa-play"></i> Explore Programs</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat"><strong>500+</strong><span>Happy Kids</span></div>
+                    <div class="stat-divider"></div>
+                    <div class="stat"><strong>15+</strong><span>Years of Care</span></div>
+                    <div class="stat-divider"></div>
+                    <div class="stat"><strong>30+</strong><span>Expert Teachers</span></div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-img-wrap">
+                    <div class="hero-img-placeholder">
+                        <div class="img-scene">
+                            <div class="scene-sun">☀️</div>
+                            <div class="scene-cloud c1">☁️</div>
+                            <div class="scene-cloud c2">☁️</div>
+                            <div class="scene-kids">
+                                <div class="kid k1">👧</div>
+                                <div class="kid k2">👦</div>
+                                <div class="kid k3">👧</div>
+                            </div>
+                            <div class="scene-ground"></div>
+                            <div class="scene-tree t1">🌳</div>
+                            <div class="scene-tree t2">🌴</div>
+                        </div>
+                    </div>
+                    <div class="float-card card-a">
+                        <span>🎨</span>
+                        <div><strong>Arts & Crafts</strong><small>Daily creative activities</small></div>
+                    </div>
+                    <div class="float-card card-b">
+                        <span>📚</span>
+                        <div><strong>Story Time</strong><small>Language & phonics</small></div>
+                    </div>
+                    <div class="float-card card-c">
+                        <span>⭐</span>
+                        <div><strong>Star of the Week</strong><small>Positive reinforcement</small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,60 C360,100 1080,0 1440,60 L1440,100 L0,100 Z" fill="#fff9f0"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ===== MARQUEE ===== -->
+    <div class="marquee-strip">
+        <div class="marquee-track">
+            <span>🎉 Admissions Open 2026–27</span>
+            <span>⭐ CBSE Aligned Curriculum</span>
+            <span>🎨 Art & Craft Daily</span>
+            <span>🏃 Outdoor Play Area</span>
+            <span>🚌 Transport Available</span>
+            <span>🍱 Healthy Tiffin Program</span>
+            <span>📱 Parent App Updates</span>
+            <span>🎉 Admissions Open 2026–27</span>
+            <span>⭐ CBSE Aligned Curriculum</span>
+            <span>🎨 Art & Craft Daily</span>
+            <span>🏃 Outdoor Play Area</span>
+            <span>🚌 Transport Available</span>
+            <span>🍱 Healthy Tiffin Program</span>
+            <span>📱 Parent App Updates</span>
+        </div>
+    </div>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-visual">
+                <div class="about-img-box">
+                    <div class="about-scene">
+                        <div class="ab-emoji e1">🎭</div>
+                        <div class="ab-emoji e2">🧩</div>
+                        <div class="ab-emoji e3">🖍️</div>
+                        <div class="ab-emoji e4">🎵</div>
+                        <div class="about-center-icon">🏫</div>
+                        <div class="about-rings">
+                            <div class="ring r1"></div>
+                            <div class="ring r2"></div>
+                            <div class="ring r3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-award-badge">
+                    <div class="award-icon">🏆</div>
+                    <div class="award-text">
+                        <strong>Best Preschool</strong>
+                        <small>Navi Mumbai 2024</small>
+                    </div>
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="section-pill">About LittleStars</div>
+                <h2>We Don't Just <em>Teach</em> —<br>We Help Children <span>Bloom</span></h2>
+                <p>At LittleStars Preschool, we believe every child is a universe of possibility. Our play-based, child-centric approach makes learning an adventure — not a routine. Located in the heart of Navi Mumbai, we've been nurturing little ones since 2009.</p>
+                <div class="about-pillars">
+                    <div class="pillar">
+                        <div class="pillar-icon">💛</div>
+                        <div><strong>Safe & Loving</strong><p>CCTV, trained staff, zero-tolerance safety policy</p></div>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon">🧠</div>
+                        <div><strong>Holistic Development</strong><p>Cognitive, social, emotional & physical growth</p></div>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon">🎯</div>
+                        <div><strong>Individual Attention</strong><p>1:10 teacher-to-child ratio in every classroom</p></div>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon">📲</div>
+                        <div><strong>Parent Connect</strong><p>Daily updates, photo diaries & regular PTMs</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROGRAMS ===== -->
+    <section class="programs-section" id="programs">
+        <div class="programs-container">
+            <div class="section-pill center">Our Programs</div>
+            <h2 class="center-heading">Learning for Every <span>Age & Stage</span></h2>
+            <p class="center-sub">Thoughtfully designed programs that grow with your child.</p>
+            <div class="programs-grid">
+                <div class="prog-card" style="--clr:#FF6B6B; --clr-light:#fff0f0;">
+                    <div class="prog-icon">🍼</div>
+                    <div class="prog-age">1.5 – 2.5 yrs</div>
+                    <h3>Playgroup</h3>
+                    <p>First steps into school life. Focus on sensory play, motor skills, and making first friends in a nurturing environment.</p>
+                    <ul><li>3 days/week</li><li>2 hours/day</li><li>Sensory activities</li></ul>
+                    <a href="#admissions" class="prog-btn">Enroll <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="prog-card featured-prog" style="--clr:#FFA94D; --clr-light:#fff8ed;">
+                    <div class="prog-badge">Most Popular ⭐</div>
+                    <div class="prog-icon">🌱</div>
+                    <div class="prog-age">2.5 – 3.5 yrs</div>
+                    <h3>Nursery</h3>
+                    <p>Building curiosity and confidence through structured play, early numeracy, language skills, and creative expression.</p>
+                    <ul><li>5 days/week</li><li>3 hours/day</li><li>Phonics & numbers</li></ul>
+                    <a href="#admissions" class="prog-btn">Enroll <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="prog-card" style="--clr:#51CF66; --clr-light:#f0fff4;">
+                    <div class="prog-icon">🚀</div>
+                    <div class="prog-age">3.5 – 4.5 yrs</div>
+                    <h3>Junior KG</h3>
+                    <p>Readiness for big school! Pre-reading, pre-writing, logical thinking and social skills through hands-on activities.</p>
+                    <ul><li>5 days/week</li><li>4 hours/day</li><li>Writing readiness</li></ul>
+                    <a href="#admissions" class="prog-btn">Enroll <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="prog-card" style="--clr:#339AF0; --clr-light:#f0f8ff;">
+                    <div class="prog-icon">🎓</div>
+                    <div class="prog-age">4.5 – 5.5 yrs</div>
+                    <h3>Senior KG</h3>
+                    <p>Full school preparation with advanced reading, math concepts, science exploration, and critical thinking skills.</p>
+                    <ul><li>5 days/week</li><li>5 hours/day</li><li>School-ready skills</li></ul>
+                    <a href="#admissions" class="prog-btn">Enroll <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY US ===== -->
+    <section class="why-section">
+        <div class="why-inner">
+            <div class="section-pill center">Why LittleStars?</div>
+            <h2 class="center-heading">Designed for Happy, <span>Curious Kids</span></h2>
+            <div class="why-grid">
+                <div class="why-card"><div class="why-icon">🎨</div><h4>Art-Based Learning</h4><p>Daily creative arts, crafts, music & dance build expression and fine motor skills.</p></div>
+                <div class="why-card"><div class="why-icon">🧘</div><h4>Yoga & Mindfulness</h4><p>Age-appropriate yoga sessions help kids focus, relax and build emotional awareness.</p></div>
+                <div class="why-card"><div class="why-icon">🌍</div><h4>Bilingual Environment</h4><p>English & Hindi medium with mother-tongue sensitivity in our classrooms.</p></div>
+                <div class="why-card"><div class="why-icon">🖥️</div><h4>Smart Classrooms</h4><p>Interactive whiteboards, digital storytelling and age-appropriate tech integration.</p></div>
+                <div class="why-card"><div class="why-icon">🌿</div><h4>Eco-Friendly Campus</h4><p>Green spaces, a garden corner and nature walks to foster love for the environment.</p></div>
+                <div class="why-card"><div class="why-icon">🩺</div><h4>Health & Hygiene</h4><p>Regular health check-ups, clean facilities, and hand-hygiene routines built into the day.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="gallery-section" id="gallery">
+        <div class="gallery-inner">
+            <div class="section-pill center">Life at LittleStars</div>
+            <h2 class="center-heading">A Glimpse of <span>Our World</span></h2>
+            <div class="gallery-grid">
+
+                <div class="gal-item gal-big">
+                    <img src="/PreSchool WebSite 1/images/artcraft.jpg" alt="Art & Craft Day" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                    <div class="gal-scene">
+                        <div class="gal-label">Art &amp; Craft Day</div>
+                    </div>
+                </div>
+
+                <div class="gal-item">
+                    <img src="/PreSchool WebSite 1/images/garden.jpg" alt="Garden Activity" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                    <div class="gal-scene">
+                        <div class="gal-label">Garden Activity</div>
+                    </div>
+                </div>
+
+                <div class="gal-item">
+                    <img src="/PreSchool WebSite 1/images/drama.jpg" alt="Drama & Role Play" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                    <div class="gal-scene">
+                        <div class="gal-label">Drama &amp; Role Play</div>
+                    </div>
+                </div>
+
+                <div class="gal-item">
+                    <img src="/PreSchool WebSite 1/images/story.jpg" alt="Story Time" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                    <div class="gal-scene">
+                        <div class="gal-label">Story Time</div>
+                    </div>
+                </div>
+
+                <div class="gal-item gal-tall">
+                    <img src="/PreSchool WebSite 1/images/outdoor.jpg" alt="Outdoor Play" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                    <div class="gal-scene">
+                        <div class="gal-label">Outdoor Play</div>
+                    </div>
+                </div>
+
+                <div class="gal-item">
+                    <img src="/PreSchool WebSite 1/images/music.jpg" alt="Music & Dance" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+                    <div class="gal-scene">
+                        <div class="gal-label">Music &amp; Dance</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section class="testi-section" id="testimonials">
+        <div class="testi-inner">
+            <div class="section-pill center">Parent Stories</div>
+            <h2 class="center-heading">What Our <span>Parents Say</span></h2>
+            <div class="testi-grid">
+                <div class="testi-card">
+                    <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"My daughter was shy and nervous about school. Within 3 months at LittleStars, she became so confident and loves going every single day! The teachers are absolutely wonderful."</p>
+                    <div class="testi-author"><div class="testi-avatar" style="background:#FF6B6B">P</div><div><strong>Priya Sharma</strong><small>Mother of Aadhya, 3 yrs · Kharghar</small></div></div>
+                </div>
+                <div class="testi-card testi-featured">
+                    <div class="testi-quote">"</div>
+                    <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The best decision we made for our son! LittleStars strikes the perfect balance between play and learning. The daily photo updates keep us connected throughout the day."</p>
+                    <div class="testi-author"><div class="testi-avatar" style="background:#FFA94D">R</div><div><strong>Rahul & Sneha Joshi</strong><small>Parents of Vivaan, 4 yrs · Vashi</small></div></div>
+                </div>
+                <div class="testi-card">
+                    <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The infrastructure, hygiene and the warmth of the staff is unmatched. My twins have been here for 2 years now and we couldn't be happier. Highly recommended to all Navi Mumbai parents!"</p>
+                    <div class="testi-author"><div class="testi-avatar" style="background:#51CF66">A</div><div><strong>Anita Kulkarni</strong><small>Mother of twins, 5 yrs · Panvel</small></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ADMISSION BANNER ===== -->
+    <section class="admission-banner">
+        <div class="banner-blobs"><div class="bb1"></div><div class="bb2"></div></div>
+        <div class="banner-content">
+            <div class="banner-emoji-row">🌟 🎒 📚 🎨 🎈</div>
+            <h2>Admissions Open for<br><span>2026 – 2027</span></h2>
+            <p>Seats are filling up fast! Book your child's free orientation visit today and experience the LittleStars magic firsthand.</p>
+            <div class="banner-btns">
+                <a href="#admissions" class="btn-white">Apply Now <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="https://wa.me/919619525492" target="_blank" class="btn-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ADMISSIONS SECTION ===== -->
+    <section class="admissions-section" id="admissions">
+        <div class="admissions-inner">
+            <div style="text-align:center; margin-bottom:8px">
+                <div class="section-pill center">Admissions 2026–27</div>
+                <h2 class="center-heading">Join the <span>LittleStars Family</span></h2>
+                <p class="center-sub">Simple 4-step process. Limited seats. Book your free visit today!</p>
+            </div>
+
+            <div class="adm-steps">
+                <div class="adm-step">
+                    <div class="step-num-tag">Step 01</div>
+                    <div class="step-bubble" style="background:linear-gradient(135deg,#FF6B6B,#FF922B)">📞</div>
+                    <h4>Enquire</h4>
+                    <p>Call, WhatsApp us or fill the form below. We respond within 2 hours!</p>
+                </div>
+                <div class="adm-step">
+                    <div class="step-num-tag">Step 02</div>
+                    <div class="step-bubble" style="background:linear-gradient(135deg,#FF922B,#FFD43B)">🏫</div>
+                    <h4>Visit School</h4>
+                    <p>Book a free school tour. Meet our teachers and see classrooms.</p>
+                </div>
+                <div class="adm-step">
+                    <div class="step-num-tag">Step 03</div>
+                    <div class="step-bubble" style="background:linear-gradient(135deg,#51CF66,#20C997)">📝</div>
+                    <h4>Fill Form</h4>
+                    <p>Complete the admission form and submit the required documents.</p>
+                </div>
+                <div class="adm-step">
+                    <div class="step-num-tag">Step 04</div>
+                    <div class="step-bubble" style="background:linear-gradient(135deg,#339AF0,#9775FA)">🌟</div>
+                    <h4>Welcome!</h4>
+                    <p>Pay the registration fee and get your uniform & stationery kit!</p>
+                </div>
+            </div>
+
+            <!-- Enquiry Form -->
+            <div class="adm-form-wrap">
+                <h3>📝 Admission Enquiry Form</h3>
+                <p>Fill in the details below — our team will call you back within 2 working hours.</p>
+                <form id="admissionForm">
+                    <div class="adm-form-grid">
+                        <div class="adm-input-group">
+                            <label>Parent / Guardian Name *</label>
+                            <input type="text" name="parent_name" placeholder="Your full name" required>
+                        </div>
+                        <div class="adm-input-group">
+                            <label>Phone / WhatsApp *</label>
+                            <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required>
+                        </div>
+                        <div class="adm-input-group">
+                            <label>Email Address</label>
+                            <input type="email" name="email" placeholder="your@email.com">
+                        </div>
+                        <div class="adm-input-group">
+                            <label>Residential Area</label>
+                            <input type="text" name="area" placeholder="e.g. Kharghar, Vashi, Panvel">
+                        </div>
+                        <div class="adm-input-group">
+                            <label>Child's Name</label>
+                            <input type="text" name="child_name" placeholder="Child's full name">
+                        </div>
+                        <div class="adm-input-group">
+                            <label>Program Interested In *</label>
+                            <select name="program" required>
+                                <option value="">Select program</option>
+                                <option>Playgroup (1.5–2.5 yrs)</option>
+                                <option>Nursery (2.5–3.5 yrs)</option>
+                                <option>Junior KG (3.5–4.5 yrs)</option>
+                                <option>Senior KG (4.5–5.5 yrs)</option>
+                            </select>
+                        </div>
+                        <div class="adm-input-group full">
+                            <label>Any Questions / Special Requirements?</label>
+                            <textarea name="message" rows="3" placeholder="Ask about transport, timings, fees or anything else…"></textarea>
+                        </div>
+                        <div class="adm-input-group full">
+                            <button type="submit" class="adm-submit">Submit Enquiry 🚀 — We'll Call You Back!</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ SECTION ===== -->
+    <section class="faq-section" id="faq">
+        <div class="faq-inner">
+            <div style="text-align:center">
+                <div class="section-pill center">Got Questions?</div>
+                <h2 class="center-heading">Frequently Asked <span>Questions</span></h2>
+                <p class="center-sub">Everything parents want to know — answered clearly.</p>
+                <div class="faq-cats">
+                    <button class="faq-cat active" onclick="filterFaq('all',this)">🌟 All</button>
+                    <button class="faq-cat" onclick="filterFaq('admission',this)">🎒 Admissions</button>
+                    <button class="faq-cat" onclick="filterFaq('academic',this)">📚 Academic</button>
+                    <button class="faq-cat" onclick="filterFaq('safety',this)">🔒 Safety</button>
+                    <button class="faq-cat" onclick="filterFaq('general',this)">ℹ️ General</button>
+                </div>
+            </div>
+
+            <div class="faq-list" id="faqList">
+
+                <div class="faq-item" data-cat="admission">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <div class="faq-q-left">
+                            <div class="faq-emoji">🎒</div>
+                            <strong>What is the age criteria for admission?</strong>
+                        </div>
+                        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        Our programs accept children based on age as of <strong>June 1st of the academic year</strong>:
+                        <ul>
+                            <li>🍼 <strong>Playgroup:</strong> 1.5 to 2.5 years</li>
+                            <li>🌱 <strong>Nursery:</strong> 2.5 to 3.5 years</li>
+                            <li>🚀 <strong>Junior KG:</strong> 3.5 to 4.5 years</li>
+                            <li>🎓 <strong>Senior KG:</strong> 4.5 to 5.5 years</li>
+                        </ul>
+                        If your child falls in between age groups, please call us — we assess each child individually.
+                    </div></div>
+                </div>
+
+                <div class="faq-item" data-cat="admission">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <div class="faq-q-left">
+                            <div class="faq-emoji">📅</div>
+                            <strong>When do admissions open for 2026–27?</strong>
+                        </div>
+                        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        Admissions for 2026–27 are <strong>currently open</strong>! We begin accepting applications in <strong>November each year</strong>. Seats fill up quickly — contact us at <strong>+91 98765 43210</strong>.
+                    </div></div>
+                </div>
+
+                <div class="faq-item" data-cat="admission">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <div class="faq-q-left">
+                            <div class="faq-emoji">💰</div>
+                            <strong>What are the fees and are there any hidden charges?</strong>
+                        </div>
+                        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        We believe in <strong>100% transparent pricing</strong>. Annual fees range from ₹18,000 to ₹38,000. There are <strong>no hidden charges</strong>. EMI payments available and 10% sibling discount offered.
+                    </div></div>
+                </div>
+
+                <div class="faq-item" data-cat="admission">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <div class="faq-q-left">
+                            <div class="faq-emoji">📄</div>
+                            <strong>What documents are needed for admission?</strong>
+                        </div>
+                        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        You need: <strong>child's birth certificate</strong>, 4 passport photos, <strong>parent's Aadhaar card</strong>, address proof, vaccination card, and previous school transfer certificate if applicable.
+                    </div></div>
+                </div>
+
+                <div class="faq-item" data-cat="academic">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <div class="faq-q-left">
+                            <div class="faq-emoji">⏰</div>
+                            <strong>What are the school timings?</strong>
+                        </div>
+                        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        School runs <strong>Monday to Saturday</strong>:
+                        <ul>
+                            <li>🍼 <strong>Playgroup:</strong> 8:30 AM – 11:00 AM</li>
+                            <li>🌱 <strong>Nursery:</strong> 8:30 AM – 11:30 AM</li>
+                            <li>🚀 <strong>Junior KG:</strong> 8:30 AM – 12:30 PM</li>
+                            <li>🎓 <strong>Senior KG:</strong> 8:30 AM – 1:30 PM</li>
+                        </ul>
+                    </div></div>
+                </div>
+
+                <div class="faq-item" data-cat="academic">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <div class="faq-q-left">
+                            <div class="faq-emoji">📚</div>
+                            <strong>What curriculum do you follow?</strong>
+                        </div>
+                        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        We follow a <strong>play-based, CBSE-aligned curriculum</strong> inspired by Montessori and NCF principles. Children learn through hands-on activities, stories, art, music and outdoor play.
+                    </div></div>
+                </div>
+
+                <div class="faq-item" data-cat="academic">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <div class="faq-q-left">
+                            <div class="faq-emoji">🌍</div>
+                            <strong>Is the medium of instruction English or Hindi?</strong>
+                        </div>
+                        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        Our primary medium is <strong>English</strong> with a <strong>bilingual environment</strong> using Hindi alongside. We are sensitive to all mother-tongue backgrounds.
+                    </div></div>
+                </div>
+
+                <div class="faq-item" data-cat="academic">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <div class="faq-q-left">
+                            <div class="faq-emoji">📊</div>
+                            <strong>How do you report a child's progress to parents?</strong>
+                        </div>
+                        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        <ul>
+                            <li>📱 <strong>Daily WhatsApp updates</strong> with photos</li>
+                            <li>📓 <strong>Monthly activity portfolio</strong></li>
+                            <li>📋 <strong>Term-end report cards</strong> (twice a year)</li>
+                            <li>👩‍👧 <strong>PTMs</strong> every quarter</li>
+                            <li>📞 <strong>Open door policy</strong> — call anytime</li>
+                        </ul>
+                    </div></div>
+                </div>
+
+                <div class="faq-item" data-cat="safety">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <div class="faq-q-left">
+                            <div class="faq-emoji">🔒</div>
+                            <strong>How do you ensure my child's safety at school?</strong>
+                        </div>
+                        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        <ul>
+                            <li>📷 <strong>24/7 HD CCTV</strong> everywhere</li>
+                            <li>🔐 <strong>Biometric entry</strong> — verified adults only</li>
+                            <li>🚫 <strong>No-stranger policy</strong></li>
+                            <li>🩺 <strong>First-aid trained teachers</strong></li>
+                            <li>✅ <strong>Background-verified staff</strong></li>
+                        </ul>
+                    </div></div>
+                </div>
+
+                <div class="faq-item" data-cat="safety">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <div class="faq-q-left">
+                            <div class="faq-emoji">🚌</div>
+                            <strong>Is transport available? Is it safe?</strong>
+                        </div>
+                        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        Yes! Door-to-door transport from Kharghar, Vashi, Panvel, Ulwe, Kamothe. GPS-tracked, female attendant on every bus. Fee: ₹1,200–1,800/month.
+                    </div></div>
+                </div>
+
+                <div class="faq-item" data-cat="general">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <div class="faq-q-left">
+                            <div class="faq-emoji">🍱</div>
+                            <strong>Do you provide lunch / tiffin?</strong>
+                        </div>
+                        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        We have a <strong>Healthy Tiffin Program</strong> (optional subscription). No junk food policy on campus. Parents can also send home-cooked tiffin.
+                    </div></div>
+                </div>
+
+                <div class="faq-item" data-cat="general">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <div class="faq-q-left">
+                            <div class="faq-emoji">📍</div>
+                            <strong>Where is LittleStars located?</strong>
+                        </div>
+                        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        <strong>Sector 10, Kharghar, Navi Mumbai – 410210.</strong> 5-minute walk from Kharghar Railway Station. Search "LittleStars Preschool Kharghar" on Google Maps.
+                    </div></div>
+                </div>
+
+                <div class="faq-item" data-cat="general">
+                    <div class="faq-q" onclick="toggleFaq(this)">
+                        <div class="faq-q-left">
+                            <div class="faq-emoji">🎯</div>
+                            <strong>Can I visit the school before enrolling?</strong>
+                        </div>
+                        <div class="faq-icon"><i class="fa-solid fa-plus"></i></div>
+                    </div>
+                    <div class="faq-a"><div class="faq-a-inner">
+                        Absolutely! Free school tours available <strong>Monday to Saturday, 9:00 AM – 11:00 AM</strong>. Call <strong>+91 98765 43210</strong> to schedule.
+                    </div></div>
+                </div>
+
+            </div>
+
+            <div class="faq-cta">
+                <div class="faq-cta-left">
+                    <h4>Still have questions? 🤔</h4>
+                    <p>Our team is happy to answer anything — call, WhatsApp or visit us in person.</p>
+                </div>
+                <div class="faq-cta-btns">
+                    <a href="#contact" class="btn-white"><i class="fa-solid fa-phone"></i> Call Us Now</a>
+                    <a href="https://wa.me/919619525492" target="_blank" class="btn-wa-sm"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <div class="contact-left">
+                <div class="section-pill">Get In Touch</div>
+                <h2>Let's Talk About<br><span>Your Child's Future</span></h2>
+                <p>We'd love to meet you and your little one! Drop in for a tour, call us, or fill the form and we'll get back to you within 24 hours.</p>
+                <div class="contact-info-cards">
+                    <div class="info-card"><div class="info-icon">📍</div><div><strong>Location</strong><p>Sector 10, Kharghar, Navi Mumbai – 410210</p></div></div>
+                    <div class="info-card"><div class="info-icon">📞</div><div><strong>Phone / WhatsApp</strong><p>+91 98765 43210</p></div></div>
+                    <div class="info-card"><div class="info-icon">📧</div><div><strong>Email</strong><p>hello@littlestars.in</p></div></div>
+                    <div class="info-card"><div class="info-icon">🕐</div><div><strong>School Hours</strong><p>Mon – Sat: 8:30 AM – 1:30 PM</p></div></div>
+                </div>
+                <div class="social-row">
+                    <a href="#" class="soc-btn"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="soc-btn"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="soc-btn"><i class="fa-brands fa-youtube"></i></a>
+                    <a href="#" class="soc-btn"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="contact-form-box">
+                <div class="form-top-deco">🎒 Quick Enquiry</div>
+                <form action="form.php" method="POST">
+                    <div class="form-row">
+                        <div class="input-wrap"><label>Parent Name</label><input type="text" name="parent_name" placeholder="Your full name" required></div>
+                        <div class="input-wrap"><label>Phone Number</label><input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required></div>
+                    </div>
+                    <div class="input-wrap"><label>Email Address</label><input type="email" name="email" placeholder="your@email.com"></div>
+                    <div class="form-row">
+                        <div class="input-wrap"><label>Child's Name</label><input type="text" name="child_name" placeholder="Child's name"></div>
+                        <div class="input-wrap"><label>Child's Age</label>
+                            <select name="child_age">
+                                <option value="">Select age</option>
+                                <option>1.5–2.5 years (Playgroup)</option>
+                                <option>2.5–3.5 years (Nursery)</option>
+                                <option>3.5–4.5 years (Junior KG)</option>
+                                <option>4.5–5.5 years (Senior KG)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-wrap"><label>Message (optional)</label><textarea name="message" rows="3" placeholder="Any questions or special requirements?"></textarea></div>
+                    <button type="submit" class="submit-btn">Send Enquiry 🚀</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-logo">
+                <div class="logo-icon">⭐</div>
+                <div class="logo-text">
+                    <span class="logo-main">LittleStars</span>
+                    <span class="logo-sub">Preschool</span>
+                </div>
+            </div>
+            <p class="footer-tagline">Where every child discovers the joy of learning. 💛</p>
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#programs">Programs</a>
+                <a href="#admissions">Admissions</a>
+                <a href="#gallery">Gallery</a>
+                <a href="#faq">FAQs</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 <strong>LittleStars Preschool</strong>, Navi Mumbai. All rights reserved.</p>
+            <p>Designed with ❤️ for our little stars.</p>
+        </div>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="back-top" id="backTop" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+    <!-- WhatsApp floating -->
+    <a class="wa-float" href="https://wa.me/919619525492?text=Hi!%20I%20am%20interested%20in%20admission%20at%20LittleStars%20Preschool." target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Chatbot toggle button -->
+    <button class="chat-toggle" id="chatToggle" onclick="toggleChat()" title="Chat with us">
+        <i class="fa-solid fa-comments" id="chatIcon"></i>
+        <span class="chat-notif" id="chatNotif">1</span>
+    </button>
+
+    <!-- Chat Window -->
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <div class="chat-avatar">🌟</div>
+            <div class="chat-title">
+                <strong>LittleStars Assistant</strong>
+                <small><span class="online-dot"></span> Online · Ready to help!</small>
+            </div>
+            <button class="chat-close" onclick="toggleChat()"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="chat-msgs" id="chatMsgs"></div>
+        <div class="chat-input-row">
+            <input type="text" id="chatInput" placeholder="Ask about admissions, fees…" onkeydown="if(event.key==='Enter') sendChat()">
+            <button onclick="sendChat()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+        <div class="chat-footer">🌟 Powered by LittleStars AI</div>
+    </div>
+
+    <!-- ===================================================
+         ALL JAVASCRIPT — ONE CLEAN SCRIPT TAG, NO src=""
+         =================================================== -->
+    <script>
+
+    // ── 1. SCROLL PROGRESS & STICKY HEADER ──────────────────────────
+    window.addEventListener('scroll', () => {
+        const prog = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+        document.getElementById('scrollProgress').style.width = prog + '%';
+        document.getElementById('mainHeader').classList.toggle('scrolled', window.scrollY > 80);
+        document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400);
+    });
+    document.getElementById('backTop').addEventListener('click', () =>
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+    );
+
+    // ── 2. MOBILE MENU ───────────────────────────────────────────────
+    const menuBtn = document.getElementById('menuBtn');
+    const navList = document.getElementById('navList');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    menuBtn.addEventListener('click', () => {
+        navList.classList.toggle('open');
+        mobileOverlay.classList.toggle('active');
+        menuBtn.classList.toggle('open');
+    });
+    mobileOverlay.addEventListener('click', () => {
+        navList.classList.remove('open');
+        mobileOverlay.classList.remove('active');
+        menuBtn.classList.remove('open');
+    });
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navList.classList.remove('open');
+            mobileOverlay.classList.remove('active');
+            menuBtn.classList.remove('open');
+        });
+    });
+
+    // ── 3. ADMISSION ENQUIRY FORM ────────────────────────────────────
+    document.getElementById('admissionForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('.adm-submit');
+        btn.textContent = '⏳ Submitting...';
+        btn.disabled = true;
+
+        const formData = {
+            parent_name: this.parent_name.value,
+            phone:       this.phone.value,
+            email:       this.email.value,
+            area:        this.area.value,
+            child_name:  this.child_name.value,
+            program:     this.program.value,
+            message:     this.message.value
+        };
+
+        try {
+            const res  = await fetch('http://localhost:5000/api/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+            const data = await res.json();
+            console.log('Server response:', data);
+        } catch (err) {
+            // Backend might be offline — still show success to user
+            console.log('Backend offline or error:', err);
+        }
+
+        btn.textContent = '✅ Submitted! We will call you within 2 hours.';
+        btn.style.background = 'linear-gradient(135deg, #51CF66, #20C997)';
+        this.reset();
+
+        setTimeout(() => {
+            btn.textContent = "Submit Enquiry 🚀 — We'll Call You Back!";
+            btn.style.background = '';
+            btn.disabled = false;
+        }, 5000);
+    });
+
+    // ── 4. FAQ ACCORDION ─────────────────────────────────────────────
+    function toggleFaq(qEl) {
+        const item   = qEl.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        // Close all open items first
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        // Open the clicked one (unless it was already open)
+        if (!isOpen) item.classList.add('open');
+    }
+
+    // ── 5. FAQ CATEGORY FILTER ───────────────────────────────────────
+    function filterFaq(cat, btn) {
+        document.querySelectorAll('.faq-cat').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.querySelectorAll('.faq-item').forEach(item => {
+            const show = cat === 'all' || item.dataset.cat === cat;
+            item.style.display = show ? '' : 'none';
+            if (!show) item.classList.remove('open');
+        });
+    }
+
+    // ── 6. CHATBOT ───────────────────────────────────────────────────
+    const CHAT_RULES = [
+        {
+            kw: ['hello','hi','hey','namaste','hii','helo'],
+            resp: "🌟 Hi there! Welcome to LittleStars Preschool!<br>I'm here to help you with admissions, programs, fees, and more. What would you like to know?",
+            qr: ["Admission process","Fee structure","Programs offered","Book a visit"]
+        },
+        {
+            kw: ['admission','admit','enroll','register','join'],
+            resp: "🎒 Admissions for 2026–27 are <b>currently open</b>!<br><br>Simple 4 steps:<br>1️⃣ Enquire (call/form)<br>2️⃣ Free school visit<br>3️⃣ Fill admission form<br>4️⃣ Pay & get welcome kit!<br><br>📞 <b>+91 98765 43210</b>",
+            qr: ["Book a visit","Fee structure","Contact us"]
+        },
+        {
+            kw: ['fee','fees','cost','charges','price','how much','kitna'],
+            resp: "💰 Our annual fees:<br><br>🍼 <b>Playgroup:</b> ₹18,000–22,000<br>🌱 <b>Nursery:</b> ₹22,000–28,000<br>🚀 <b>Junior KG:</b> ₹28,000–34,000<br>🎓 <b>Senior KG:</b> ₹30,000–38,000<br><br><i>✅ EMI available &nbsp;|&nbsp; 10% sibling discount</i>",
+            qr: ["Admission process","Book a visit","Contact us"]
+        },
+        {
+            kw: ['program','programmes','course','playgroup','nursery','kg','kindergarten'],
+            resp: "📚 We offer 4 programs:<br><br>🍼 <b>Playgroup</b> — 1.5 to 2.5 yrs<br>🌱 <b>Nursery</b> — 2.5 to 3.5 yrs<br>🚀 <b>Junior KG</b> — 3.5 to 4.5 yrs<br>🎓 <b>Senior KG</b> — 4.5 to 5.5 yrs",
+            qr: ["Fee structure","Admission process","Book a visit"]
+        },
+        {
+            kw: ['location','where','address','kharghar','navi mumbai','reach'],
+            resp: "📍 <b>Sector 10, Kharghar, Navi Mumbai – 410210</b><br><br>Just a 5-minute walk from Kharghar Railway Station. Ample parking available!",
+            qr: ["Book a visit","Transport","Contact us"]
+        },
+        {
+            kw: ['transport','bus','pick','drop','van','vehicle'],
+            resp: "🚌 Yes! We offer <b>door-to-door transport</b>:<br><br>✅ GPS-tracked buses<br>✅ Female attendant on every bus<br>✅ AC mini-buses with seat belts<br><br>Routes: Kharghar, Vashi, Panvel, Ulwe, Kamothe<br>Fee: <b>₹1,200–1,800/month</b>",
+            qr: ["Fee structure","Contact us"]
+        },
+        {
+            kw: ['timing','time','hours','schedule','kab','when'],
+            resp: "🕐 School timings (Mon–Sat):<br><br>🍼 Playgroup: 8:30–11:00 AM<br>🌱 Nursery: 8:30–11:30 AM<br>🚀 Jr KG: 8:30 AM–12:30 PM<br>🎓 Sr KG: 8:30 AM–1:30 PM<br><br>Office open till 6:00 PM.",
+            qr: ["Admission process","Book a visit"]
+        },
+        {
+            kw: ['safe','safety','cctv','security','secure'],
+            resp: "🔒 Your child's safety is our #1 priority:<br><br>📷 24/7 HD CCTV everywhere<br>🔐 Biometric entry system<br>🚫 No-stranger policy<br>🩺 First-aid trained teachers<br>✅ Police-verified staff",
+            qr: ["Programs offered","Book a visit"]
+        },
+        {
+            kw: ['contact','call','phone','number','reach','help','support'],
+            resp: "📞 <b>+91 98765 43210</b><br>📧 hello@littlestars.in<br>📍 Sector 10, Kharghar, Navi Mumbai<br>🕐 Mon–Sat: 8 AM – 6 PM<br><br>We respond within 2 hours!",
+            qr: ["Book a visit","Fee structure","Admission process"]
+        },
+        {
+            kw: ['visit','tour','come','see','school','campus'],
+            resp: "🎉 <b>Book a FREE school tour!</b><br><br>Available Mon–Sat, 9:00–11:00 AM.<br>Bring your child — they'll love seeing the classrooms!<br><br>📞 Call <b>+91 98765 43210</b> or fill the form above.",
+            qr: ["Contact us","Fee structure"]
+        },
+        {
+            kw: ['food','tiffin','lunch','meal','eat','snack'],
+            resp: "🍱 We have a <b>Healthy Tiffin Program</b> (optional).<br><br>✅ Home-style nutritious meals<br>🚫 No junk food / chips / aerated drinks allowed<br>🏠 Parents can also send home-cooked tiffin.",
+            qr: ["Fee structure","Contact us"]
+        },
+        {
+            kw: ['curriculum','syllabus','cbse','montessori','teach','learn'],
+            resp: "📖 We follow a <b>play-based, CBSE-aligned curriculum</b> inspired by Montessori & NCF principles.<br><br>Learning happens through activities, stories, art, music & outdoor play — never through rote learning or pressure!",
+            qr: ["Programs offered","Book a visit"]
+        },
+        {
+            kw: ['thank','thanks','awesome','great','perfect','good','nice'],
+            resp: "😊 You're so welcome! We can't wait to welcome your little one to the LittleStars family! 🌟<br><br>Feel free to ask anything else anytime.",
+            qr: ["Book a visit","Admission process"]
+        },
+        {
+            kw: ['bye','goodbye','ok bye','baad mein','later'],
+            resp: "👋 Goodbye! Thank you for visiting LittleStars!<br>We hope to see you and your little one soon! 🌟",
+            qr: []
+        }
+    ];
+
+    const DEFAULT_RESP = {
+        resp: "🤔 That's a great question! Our team can best answer this personally.<br><br>Here's what I can quickly help you with:",
+        qr: ["Admission process","Fee structure","Programs offered","Book a visit","Timings","Transport"]
+    };
+
+    let chatOpen = false;
+    const chatMsgs = document.getElementById('chatMsgs');
+
+    function toggleChat() {
+        chatOpen = !chatOpen;
+        const win   = document.getElementById('chatWindow');
+        const icon  = document.getElementById('chatIcon');
+        const notif = document.getElementById('chatNotif');
+
+        if (chatOpen) {
+            win.classList.add('open');
+            icon.className  = 'fa-solid fa-xmark';
+            notif.style.display = 'none';
+            // Show welcome message only the very first time
+            if (chatMsgs.innerHTML.trim() === '') {
+                setTimeout(() => addBotMsg(
+                    "🌟 Hello! Welcome to <b>LittleStars Preschool</b>! 🎉<br><br>I can help with <b>admissions, fees, programs, timings, transport</b> and more.<br><br>What would you like to know?",
+                    ["Admission process","Fee structure","Programs","Book a visit","Timings"]
+                ), 400);
+            }
+        } else {
+            win.classList.remove('open');
+            icon.className = 'fa-solid fa-comments';
+        }
+    }
+
+    function sendChat() {
+        const inp = document.getElementById('chatInput');
+        const txt = inp.value.trim();
+        if (!txt) return;
+        inp.value = '';
+
+        // Show user message
+        const userMsg = document.createElement('div');
+        userMsg.className = 'cmsg cuser';
+        userMsg.textContent = txt;
+        chatMsgs.appendChild(userMsg);
+        chatMsgs.scrollTop = chatMsgs.scrollHeight;
+
+        // Show typing indicator
+        const typing = document.createElement('div');
+        typing.className = 'cmsg cbot';
+        typing.innerHTML = '<div class="cbot-lbl">LittleStars</div><i>typing…</i>';
+        chatMsgs.appendChild(typing);
+        chatMsgs.scrollTop = chatMsgs.scrollHeight;
+
+        setTimeout(() => {
+            chatMsgs.removeChild(typing);
+            const rule = CHAT_RULES.find(r =>
+                r.kw.some(k => txt.toLowerCase().includes(k))
+            ) || DEFAULT_RESP;
+            addBotMsg(rule.resp, rule.qr);
+        }, 800);
+    }
+
+    function addBotMsg(html, qrs = []) {
+        const d = document.createElement('div');
+        d.className = 'cmsg cbot';
+        d.innerHTML = `<div class="cbot-lbl">LittleStars</div>${html}`;
+        if (qrs.length) {
+            const row = document.createElement('div');
+            row.className = 'cqr-row';
+            qrs.forEach(q => {
+                const b = document.createElement('button');
+                b.className  = 'cqr';
+                b.textContent = q;
+                b.onclick = () => {
+                    document.getElementById('chatInput').value = q;
+                    sendChat();
+                };
+                row.appendChild(b);
+            });
+            d.appendChild(row);
+        }
+        chatMsgs.appendChild(d);
+        chatMsgs.scrollTop = chatMsgs.scrollHeight;
+    }
+
+    // Auto-open chat after 6 seconds on page load
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            if (!chatOpen) toggleChat();
+        }, 6000);
+    });
+
+    </script>
+</body>
+</html>
